@@ -5,7 +5,8 @@ $(document).ready(function(e){
 		$('.enviar').tap(function(){
 			var formulario=$(this).parents('form');
 			var usuario=document.getElementById('usuario').value;
-						var password=document.getElementById('password').value;
+			var password=document.getElementById('password').value;
+			var ID_Usuario="";
 
 			loginconectar(usuario,password);
 			function loginconectar(U,P)
@@ -20,8 +21,13 @@ $(document).ready(function(e){
 					if(msg==""|| msg==null)
 					{alert("usuario incorrecto");}
 					else
-					{alert("Bienvenido");}
-				
+					{
+					var oUsuario=jquery.porseJSON(msg);
+					ID_usuario=OUsuario.usuario;
+					alert("Bienbenido "+ ID_usuario);
+					location.href="#Busqueda";
+					
+					}
 				});//function msg
 			}//function
 		});//tap
